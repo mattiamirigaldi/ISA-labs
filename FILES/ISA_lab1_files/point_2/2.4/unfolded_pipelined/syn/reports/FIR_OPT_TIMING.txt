@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fir_filter_unfolded_3_Nb14_N8_s7_k3
+Version: O-2018.06-SP4
+Date   : Wed Nov 17 16:44:41 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: b1[9] (input port clocked by CLK)
+  Endpoint: proc_unit_1/REGi_1_stage_1/Q_reg[12]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fir_filter_unfolded_3_Nb14_N8_s7_k3
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 f
+  b1[9] (in)                                              0.00       0.50 f
+  proc_unit_1/coefficient[1][2] (processing_unit_Nbit14_s7_N8_0)
+                                                          0.00       0.50 f
+  proc_unit_1/mult_52_G2/b[2] (processing_unit_Nbit14_s7_N8_0_DW_mult_tc_3)
+                                                          0.00       0.50 f
+  proc_unit_1/mult_52_G2/U121/ZN (INV_X1)                 0.06       0.56 r
+  proc_unit_1/mult_52_G2/U154/ZN (NOR2_X1)                0.03       0.59 f
+  proc_unit_1/mult_52_G2/U44/S (HA_X1)                    0.08       0.67 f
+  proc_unit_1/mult_52_G2/U12/CO (FA_X1)                   0.09       0.77 f
+  proc_unit_1/mult_52_G2/U11/CO (FA_X1)                   0.10       0.87 f
+  proc_unit_1/mult_52_G2/U10/CO (FA_X1)                   0.09       0.96 f
+  proc_unit_1/mult_52_G2/U9/CO (FA_X1)                    0.09       1.05 f
+  proc_unit_1/mult_52_G2/U8/CO (FA_X1)                    0.09       1.14 f
+  proc_unit_1/mult_52_G2/U7/CO (FA_X1)                    0.09       1.23 f
+  proc_unit_1/mult_52_G2/U6/CO (FA_X1)                    0.09       1.32 f
+  proc_unit_1/mult_52_G2/U5/CO (FA_X1)                    0.09       1.41 f
+  proc_unit_1/mult_52_G2/U4/CO (FA_X1)                    0.09       1.50 f
+  proc_unit_1/mult_52_G2/U3/CO (FA_X1)                    0.09       1.59 f
+  proc_unit_1/mult_52_G2/U2/S (FA_X1)                     0.13       1.72 r
+  proc_unit_1/mult_52_G2/product[12] (processing_unit_Nbit14_s7_N8_0_DW_mult_tc_3)
+                                                          0.00       1.72 r
+  proc_unit_1/REGi_1_stage_1/d[12] (reg_Nb_reg14_38)      0.00       1.72 r
+  proc_unit_1/REGi_1_stage_1/U19/ZN (NAND2_X1)            0.03       1.75 f
+  proc_unit_1/REGi_1_stage_1/U18/ZN (OAI21_X1)            0.03       1.78 r
+  proc_unit_1/REGi_1_stage_1/Q_reg[12]/D (DFFR_X1)        0.01       1.79 r
+  data arrival time                                                  1.79
+
+  clock CLK (rise edge)                                   7.20       7.20
+  clock network delay (ideal)                             0.00       7.20
+  clock uncertainty                                      -0.07       7.13
+  proc_unit_1/REGi_1_stage_1/Q_reg[12]/CK (DFFR_X1)       0.00       7.13 r
+  library setup time                                     -0.04       7.09
+  data required time                                                 7.09
+  --------------------------------------------------------------------------
+  data required time                                                 7.09
+  data arrival time                                                 -1.79
+  --------------------------------------------------------------------------
+  slack (MET)                                                        5.30
+
+
+1

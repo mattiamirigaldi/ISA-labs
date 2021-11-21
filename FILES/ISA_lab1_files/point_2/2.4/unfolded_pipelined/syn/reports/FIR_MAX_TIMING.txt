@@ -1,0 +1,78 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fir_filter_unfolded_3_Nb14_N8_s7_k3
+Version: O-2018.06-SP4
+Date   : Wed Nov 17 16:53:36 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: b2[9] (input port clocked by CLK)
+  Endpoint: proc_unit_3/REGi_1_stage_2/Q_reg[12]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fir_filter_unfolded_3_Nb14_N8_s7_k3
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 r
+  b2[9] (in)                                              0.00       0.50 r
+  proc_unit_3/coefficient[2][2] (processing_unit_Nbit14_s7_N8_1)
+                                                          0.00       0.50 r
+  proc_unit_3/mult_52_G3/b[2] (processing_unit_Nbit14_s7_N8_1_DW_mult_tc_2)
+                                                          0.00       0.50 r
+  proc_unit_3/mult_52_G3/U173/ZN (INV_X1)                 0.04       0.54 f
+  proc_unit_3/mult_52_G3/U205/ZN (NOR2_X1)                0.06       0.60 r
+  proc_unit_3/mult_52_G3/U44/CO (HA_X1)                   0.06       0.66 r
+  proc_unit_3/mult_52_G3/U42/S (FA_X1)                    0.12       0.78 f
+  proc_unit_3/mult_52_G3/U165/ZN (NAND2_X1)               0.05       0.83 r
+  proc_unit_3/mult_52_G3/U166/ZN (NAND3_X1)               0.04       0.87 f
+  proc_unit_3/mult_52_G3/U171/ZN (NAND2_X1)               0.04       0.91 r
+  proc_unit_3/mult_52_G3/U172/ZN (NAND3_X1)               0.04       0.95 f
+  proc_unit_3/mult_52_G3/U150/ZN (NAND2_X1)               0.04       0.98 r
+  proc_unit_3/mult_52_G3/U152/ZN (NAND3_X1)               0.04       1.02 f
+  proc_unit_3/mult_52_G3/U158/ZN (NAND2_X1)               0.03       1.05 r
+  proc_unit_3/mult_52_G3/U160/ZN (NAND3_X1)               0.04       1.09 f
+  proc_unit_3/mult_52_G3/U144/ZN (NAND2_X1)               0.04       1.14 r
+  proc_unit_3/mult_52_G3/U146/ZN (NAND3_X1)               0.04       1.18 f
+  proc_unit_3/mult_52_G3/U133/ZN (NAND2_X1)               0.03       1.20 r
+  proc_unit_3/mult_52_G3/U135/ZN (NAND3_X1)               0.05       1.25 f
+  proc_unit_3/mult_52_G3/U125/ZN (NAND2_X1)               0.04       1.29 r
+  proc_unit_3/mult_52_G3/U127/ZN (NAND3_X1)               0.04       1.32 f
+  proc_unit_3/mult_52_G3/U4/CO (FA_X1)                    0.09       1.41 f
+  proc_unit_3/mult_52_G3/U3/CO (FA_X1)                    0.09       1.50 f
+  proc_unit_3/mult_52_G3/U2/S (FA_X1)                     0.13       1.64 r
+  proc_unit_3/mult_52_G3/product[12] (processing_unit_Nbit14_s7_N8_1_DW_mult_tc_2)
+                                                          0.00       1.64 r
+  proc_unit_3/REGi_1_stage_2/d[12] (reg_Nb_reg14_11)      0.00       1.64 r
+  proc_unit_3/REGi_1_stage_2/U35/ZN (NAND2_X1)            0.03       1.66 f
+  proc_unit_3/REGi_1_stage_2/U32/ZN (NAND2_X1)            0.03       1.69 r
+  proc_unit_3/REGi_1_stage_2/Q_reg[12]/D (DFFR_X1)        0.01       1.70 r
+  data arrival time                                                  1.70
+
+  clock CLK (rise edge)                                   1.80       1.80
+  clock network delay (ideal)                             0.00       1.80
+  clock uncertainty                                      -0.07       1.73
+  proc_unit_3/REGi_1_stage_2/Q_reg[12]/CK (DFFR_X1)       0.00       1.73 r
+  library setup time                                     -0.03       1.70
+  data required time                                                 1.70
+  --------------------------------------------------------------------------
+  data required time                                                 1.70
+  data arrival time                                                 -1.70
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

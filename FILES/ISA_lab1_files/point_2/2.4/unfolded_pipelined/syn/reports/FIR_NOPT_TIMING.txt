@@ -1,0 +1,62 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fir_filter_unfolded_3_Nb14_N8_s7_k3
+Version: O-2018.06-SP4
+Date   : Wed Nov 17 16:15:41 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: proc_unit_1/REG_1_STAGE/Q_reg[0]
+              (rising edge-triggered flip-flop)
+  Endpoint: Dout_1[13] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fir_filter_unfolded_3_Nb14_N8_s7_k3
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  proc_unit_1/REG_1_STAGE/Q_reg[0]/CK (DFFR_X1)           0.00       0.00 r
+  proc_unit_1/REG_1_STAGE/Q_reg[0]/Q (DFFR_X1)            0.12       0.12 r
+  proc_unit_1/REG_1_STAGE/Q[0] (reg_Nb_reg8_0)            0.00       0.12 r
+  proc_unit_1/add_3_root_add_81_4/A[0] (processing_unit_Nbit14_s7_N8_0_DW01_add_3)
+                                                          0.00       0.12 r
+  proc_unit_1/add_3_root_add_81_4/U1/ZN (AND2_X1)         0.05       0.17 r
+  proc_unit_1/add_3_root_add_81_4/U1_1/S (FA_X1)          0.11       0.29 f
+  proc_unit_1/add_3_root_add_81_4/SUM[1] (processing_unit_Nbit14_s7_N8_0_DW01_add_3)
+                                                          0.00       0.29 f
+  proc_unit_1/add_1_root_add_81_4/B[1] (processing_unit_Nbit14_s7_N8_0_DW01_add_1)
+                                                          0.00       0.29 f
+  proc_unit_1/add_1_root_add_81_4/U1_1/CO (FA_X1)         0.10       0.39 f
+  proc_unit_1/add_1_root_add_81_4/U1_2/CO (FA_X1)         0.09       0.48 f
+  proc_unit_1/add_1_root_add_81_4/U1_3/CO (FA_X1)         0.09       0.57 f
+  proc_unit_1/add_1_root_add_81_4/U1_4/CO (FA_X1)         0.09       0.66 f
+  proc_unit_1/add_1_root_add_81_4/U1_5/CO (FA_X1)         0.09       0.75 f
+  proc_unit_1/add_1_root_add_81_4/U1_6/CO (FA_X1)         0.09       0.84 f
+  proc_unit_1/add_1_root_add_81_4/U1_7/S (FA_X1)          0.11       0.96 f
+  proc_unit_1/add_1_root_add_81_4/SUM[7] (processing_unit_Nbit14_s7_N8_0_DW01_add_1)
+                                                          0.00       0.96 f
+  proc_unit_1/add_0_root_add_81_4/B[7] (processing_unit_Nbit14_s7_N8_0_DW01_add_0)
+                                                          0.00       0.96 f
+  proc_unit_1/add_0_root_add_81_4/U1_7/S (FA_X1)          0.14       1.10 r
+  proc_unit_1/add_0_root_add_81_4/SUM[7] (processing_unit_Nbit14_s7_N8_0_DW01_add_0)
+                                                          0.00       1.10 r
+  proc_unit_1/result[13] (processing_unit_Nbit14_s7_N8_0)
+                                                          0.00       1.10 r
+  Dout_1[13] (out)                                        0.00       1.10 r
+  data arrival time                                                  1.10
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

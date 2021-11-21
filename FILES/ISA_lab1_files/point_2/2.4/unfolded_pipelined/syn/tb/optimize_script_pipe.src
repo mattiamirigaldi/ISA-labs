@@ -1,0 +1,20 @@
+#modelsim
+#vcom -93 -work work ../tb/clk_gen.vhd
+#vcom -93 -work work ../tb/read_input.vhd
+#vcom -93 -work work ./tb/write_output.vhd
+#vlog -work work ./netlist/myfir_pipe.v
+#vlog -work work ./tb/tb_fir_filter_unfolded.v
+#vsim -L /software/dk/nangate45/verilog/msim6.5c work.tb_fir_filter_unfolded
+#vsim -L /software/dk/nangate45/verilog/msim6.5c -sdftyp /tb_fir_filter_unfolded/DUT=./netlist/myfir_pipe.sdf work.tb_fir_filter_unfolded
+#vcd file ./vcd/myfir_pipe_syn.vcd
+#vcd add /tb_fir_filter_unfolded/DUT/*
+#run 695 ns
+#synopsys shell terminal
+#vcd2saif -input ./vcd/myfir_pipe_syn.vcd -output ./saif/myfir_pipe_syn.saif
+#synopsys
+read_verilog -netlist ./netlist/myfir_pipe.v
+read_saif -input ./saif/myfir_pipe_syn.saif -instance tb_fir_filter_unfolded/DUT -unit ns -scale 1
+create_clock -name MY_CLK Ck
+report_power > reports/FIR_OPT_POWER.txt
+
+
