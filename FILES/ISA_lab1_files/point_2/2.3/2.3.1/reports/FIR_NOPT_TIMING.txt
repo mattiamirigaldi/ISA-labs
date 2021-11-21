@@ -1,0 +1,38 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fir_filter_mod_Nb14_N8_s7
+Version: O-2018.06-SP4
+Date   : Tue Nov  9 02:27:00 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: proc_unit/result_reg[13]
+              (rising edge-triggered flip-flop)
+  Endpoint: Dout[13] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fir_filter_mod_Nb14_N8_s7
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  proc_unit/result_reg[13]/CK (DFF_X1)                    0.00       0.00 r
+  proc_unit/result_reg[13]/Q (DFF_X1)                     0.09       0.09 r
+  proc_unit/result[13] (processing_unit_Nb14_s7_N8)       0.00       0.09 r
+  Dout[13] (out)                                          0.00       0.09 r
+  data arrival time                                                  0.09
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

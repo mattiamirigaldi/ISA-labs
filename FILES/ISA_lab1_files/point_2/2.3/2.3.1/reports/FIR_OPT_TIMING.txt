@@ -1,0 +1,94 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : fir_filter_mod_Nb14_N8_s7
+Version: O-2018.06-SP4
+Date   : Tue Nov  9 02:43:47 2021
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: b1[7] (input port clocked by CLK)
+  Endpoint: proc_unit/result_reg[13]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  fir_filter_mod_Nb14_N8_s7
+                     5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock CLK (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.50       0.50 f
+  b1[7] (in)                                              0.00       0.50 f
+  proc_unit/coefficient[1][0] (processing_unit_Nb14_s7_N8)
+                                                          0.00       0.50 f
+  proc_unit/mult_31_I2/b[0] (processing_unit_Nb14_s7_N8_DW_mult_tc_10)
+                                                          0.00       0.50 f
+  proc_unit/mult_31_I2/U187/ZN (INV_X1)                   0.05       0.55 r
+  proc_unit/mult_31_I2/U176/ZN (NOR2_X1)                  0.03       0.58 f
+  proc_unit/mult_31_I2/U174/ZN (AND2_X1)                  0.04       0.62 f
+  proc_unit/mult_31_I2/U12/CO (FA_X1)                     0.10       0.72 f
+  proc_unit/mult_31_I2/U11/CO (FA_X1)                     0.10       0.82 f
+  proc_unit/mult_31_I2/U10/CO (FA_X1)                     0.09       0.92 f
+  proc_unit/mult_31_I2/U119/ZN (NAND2_X1)                 0.04       0.96 r
+  proc_unit/mult_31_I2/U149/ZN (NAND3_X1)                 0.04       1.00 f
+  proc_unit/mult_31_I2/U113/ZN (NAND2_X1)                 0.03       1.03 r
+  proc_unit/mult_31_I2/U155/ZN (NAND3_X1)                 0.04       1.06 f
+  proc_unit/mult_31_I2/U7/S (FA_X1)                       0.14       1.20 r
+  proc_unit/mult_31_I2/product[7] (processing_unit_Nb14_s7_N8_DW_mult_tc_10)
+                                                          0.00       1.20 r
+  proc_unit/add_7_root_add_32_I9/B[1] (processing_unit_Nb14_s7_N8_DW01_add_7)
+                                                          0.00       1.20 r
+  proc_unit/add_7_root_add_32_I9/U1_1/S (FA_X1)           0.12       1.32 f
+  proc_unit/add_7_root_add_32_I9/SUM[1] (processing_unit_Nb14_s7_N8_DW01_add_7)
+                                                          0.00       1.32 f
+  proc_unit/add_3_root_add_32_I9/B[1] (processing_unit_Nb14_s7_N8_DW01_add_3)
+                                                          0.00       1.32 f
+  proc_unit/add_3_root_add_32_I9/U1_1/S (FA_X1)           0.15       1.47 r
+  proc_unit/add_3_root_add_32_I9/SUM[1] (processing_unit_Nb14_s7_N8_DW01_add_3)
+                                                          0.00       1.47 r
+  proc_unit/add_1_root_add_32_I9/B[1] (processing_unit_Nb14_s7_N8_DW01_add_1)
+                                                          0.00       1.47 r
+  proc_unit/add_1_root_add_32_I9/U1_1/S (FA_X1)           0.12       1.59 f
+  proc_unit/add_1_root_add_32_I9/SUM[1] (processing_unit_Nb14_s7_N8_DW01_add_1)
+                                                          0.00       1.59 f
+  proc_unit/add_0_root_add_32_I9/B[1] (processing_unit_Nb14_s7_N8_DW01_add_0)
+                                                          0.00       1.59 f
+  proc_unit/add_0_root_add_32_I9/U1_1/CO (FA_X1)          0.10       1.70 f
+  proc_unit/add_0_root_add_32_I9/U1_2/CO (FA_X1)          0.09       1.79 f
+  proc_unit/add_0_root_add_32_I9/U1_3/CO (FA_X1)          0.09       1.88 f
+  proc_unit/add_0_root_add_32_I9/U1_4/CO (FA_X1)          0.09       1.97 f
+  proc_unit/add_0_root_add_32_I9/U1_5/CO (FA_X1)          0.09       2.06 f
+  proc_unit/add_0_root_add_32_I9/U1_6/CO (FA_X1)          0.09       2.15 f
+  proc_unit/add_0_root_add_32_I9/U1_7/S (FA_X1)           0.13       2.28 r
+  proc_unit/add_0_root_add_32_I9/SUM[7] (processing_unit_Nb14_s7_N8_DW01_add_0)
+                                                          0.00       2.28 r
+  proc_unit/U28/ZN (NAND2_X1)                             0.03       2.31 f
+  proc_unit/U27/ZN (OAI21_X1)                             0.03       2.34 r
+  proc_unit/result_reg[13]/D (DFF_X1)                     0.01       2.35 r
+  data arrival time                                                  2.35
+
+  clock CLK (rise edge)                                   9.80       9.80
+  clock network delay (ideal)                             0.00       9.80
+  clock uncertainty                                      -0.07       9.73
+  proc_unit/result_reg[13]/CK (DFF_X1)                    0.00       9.73 r
+  library setup time                                     -0.03       9.70
+  data required time                                                 9.70
+  --------------------------------------------------------------------------
+  data required time                                                 9.70
+  data arrival time                                                 -2.35
+  --------------------------------------------------------------------------
+  slack (MET)                                                        7.35
+
+
+1

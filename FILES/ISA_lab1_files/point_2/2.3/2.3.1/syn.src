@@ -1,0 +1,49 @@
+exec mkdir -p work
+#analyze
+analyze -library WORK -format vhdl {../../2.2/src/constants.vhd}
+analyze -library WORK -format vhdl {../../2.2/src/my_data_types.vhd}
+analyze -library WORK -format vhdl {../../2.2/src/reg.vhd}
+analyze -library WORK -format vhdl {../../2.2/src/processing_unit.vhd}
+analyze -library WORK -format vhdl {../../2.2/src/fir_filter_mod.vhd}
+# elaborate top entity: DLX
+elaborate FIR_FILTER_MOD -architecture STRUCTURAL -library WORK -parameters "Nb = 14, N = 8, s = 7"
+#Current design is 'fir_filter_mod_Nb14_N8_s7'.
+#compilation without constraints
+#compile 
+#report_timing > reports/FIR_NOPT_TIMING.txt
+#report_area > reports/FIR_NOPT_AREA.txt
+#report_power > reports/FIR_NOPT_POWER.txt
+# Static Timinig Analysis for Fmax #2.5 ns=> Fmax=400 MHz
+#create_clock -name "CLK" -period 2.45 Ck
+#constrained flow
+#set_dont_touch_network CLK
+#set_clock_uncertainty 0.07 [get_clocks CLK]
+#set_input_delay 0.5 -max -clock CLK [remove_from_collection [all_inputs] Ck]
+#set_output_delay 0.5 -max -clock CLK [all_outputs]
+#set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
+#set_load $OLOAD [all_outputs]
+#compile
+#report_timing > reports/FIR_MAX_TIMING.txt
+#report_area > reports/FIR_MAX_AREA.txt
+# Static Timinig Analysis for Fclk=Fmax/4 #10.0 ns=> Fmax=100 MHz
+create_clock -name "CLK" -period 9.8 Ck
+#constrained flow
+set_dont_touch_network CLK
+set_clock_uncertainty 0.07 [get_clocks CLK]
+set_input_delay 0.5 -max -clock CLK [remove_from_collection [all_inputs] Ck]
+set_output_delay 0.5 -max -clock CLK [all_outputs]
+set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
+set_load $OLOAD [all_outputs]
+compile
+report_timing > reports/FIR_OPT_TIMING.txt
+report_area > reports/FIR_OPT_AREA.txt
+#save netlist files
+write -hierarchy -format ddc -output netlist/myfir.ddc
+write -hierarchy -format vhdl -output netlist/myfir.vhdl
+ungroup -all -flatten
+change_names -hierarchy -rules verilog
+write_sdf netlist/myfir.sdf
+write -f verilog -hierarchy -output netlist/myfir.v
+write_sdc netlist/myfir.sdc
+quit
+
