@@ -1,0 +1,33 @@
+exec mkdir -p work
+analyze -library WORK -format vhdl {../../../POINT_1/sim/src/common/fpnormalize_fpnormalize.vhd}
+analyze -library WORK -format vhdl {../../../POINT_1/sim/src/common/fpround_fpround.vhd}
+analyze -library WORK -format vhdl {../../../POINT_1/sim/src/common/packfp_packfp.vhd}
+analyze -library WORK -format vhdl {../../../POINT_1/sim/src/common/unpackfp_unpackfp.vhd}
+analyze -library WORK -format vhdl {../src/pipelined/reg.vhd}
+analyze -library WORK -format vhdl {../src/pipelined/FlipFlop.vhd}
+analyze -library WORK -format vhdl {../src/constants.vhd}
+analyze -library WORK -format vhdl {../src/fa.vhd}
+analyze -library WORK -format vhdl {../src/ha.vhd}
+analyze -library WORK -format vhdl {../src/Booth_Encoder.vhd}
+analyze -library WORK -format vhdl {../src/DADDA.vhd}
+analyze -library WORK -format vhdl {../src/MBE.vhd}
+analyze -library WORK -format vhdl {../src/multiplier/fpmul_stage1_struct.vhd}
+analyze -library WORK -format vhdl {../src/multiplier/fpmul_stage2_struct.vhd}
+analyze -library WORK -format vhdl {../src/multiplier/fpmul_stage3_struct.vhd}
+analyze -library WORK -format vhdl {../src/multiplier/fpmul_stage4_struct.vhd}
+analyze -library WORK -format vhdl {../src/pipelined/fpmul_pipeline.vhd}
+elaborate FPMUL -architecture PIPELINE -library WORK
+#4.5 ns-> Fmax=222 MHz
+create_clock -name "CLK" -period 0.78 clk 
+set_dont_touch_network CLK
+set_clock_uncertainty 0.07 [get_clocks CLK]
+set_input_delay 0.5 -max -clock CLK [remove_from_collection [all_inputs] clk]
+set_output_delay 0.5 -max -clock CLK [all_outputs]
+set OLOAD [load_of NangateOpenCellLibrary/BUF_X4/A]
+set_load $OLOAD [all_outputs]
+compile
+optimize_registers
+report_timing > reports/pipe/CO_mbe_TIMING.txt
+report_area > reports/pipe/CO_mbe_AREA.txt
+report_power > reports/pipe/CO_mbe_POWER.txt
+
